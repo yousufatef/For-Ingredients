@@ -1,6 +1,9 @@
 <template>
-  <div class="bg-red-600">
-    <h1 class="font-bold">Hello</h1>
+  <div>
+    <div class="bg-primary-color text-white">NavBa</div>
+    <div>
+      <router-view />
+    </div>
   </div>
 </template>
 
