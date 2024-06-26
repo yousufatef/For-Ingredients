@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Home from '../views/Home.vue';
 
 // component with import for lazy loading == component: () => import("../views/Home.vue")
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: () => import("../views/Home.vue"),
+    path: '/',
+    name: 'home',
+    component: Home
   },
   {
     path: "/by-name/:name?",

@@ -1,14 +1,15 @@
 <template>
   <div>
-    <div class="bg-primary-color text-white">NavBa</div>
-    <div>
+    <header>
+      <NavBar />
+    </header>
+    <main>
       <router-view />
-    </div>
+    </main>
   </div>
 </template>
 
-<script>
-export default {};
+<script setup>
+import NavBar from "./components/NavBar.vue";
 </script>
 
-<style lang="scss" scoped></style>
