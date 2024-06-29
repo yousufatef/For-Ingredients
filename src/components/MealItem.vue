@@ -1,7 +1,6 @@
 <template>
   <div class="bg-white shadow rounded-xl hover:scale-[1.01] transition-all">
-    <router-link :to="{name: 'mealDetails', params: { id: meal.idMeal }}">
-      
+    <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
       <img
         :src="meal.strMealThumb"
         :alt="meal.strMeal"
@@ -15,17 +14,13 @@
           {{ truncateWords(meal.strInstructions, 20) }}
         </p>
       </div>
-      <a
-        :href="meal.strYoutube"
-        target="_blank"
-        class="px-2 py-2 rounded-md border-2 text-center font-semibold text-white cursor-pointer bg-primary-color"
-      >
-        YouTube
-      </a>
+      <YouTubeBtn :href="meal.strYoutube" />
     </div>
   </div>
 </template>
 <script setup>
+import YouTubeBtn from "./YouTubeBtn.vue";
+
 // To Trunc the description of mea ot 20 words only
 const truncateWords = (str, count) => {
   if (!str) return str;

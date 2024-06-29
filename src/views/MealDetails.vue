@@ -3,7 +3,11 @@
     <h1 class="text-4xl font-bold mb-5 text-primary-color max-md:text-center">
       {{ meal.strMeal }}
     </h1>
-    <img :src="meal.strMealThumb" :alt="meal.strMeal" class="max-w-[100%] max-md:m-auto pb-3" />
+    <img
+      :src="meal.strMealThumb"
+      :alt="meal.strMeal"
+      class="max-w-[100%] max-md:m-auto pb-3"
+    />
     <div class="grid grid-cols-1 sm:grid-cols-3 text-lg py-2">
       <div>
         <strong class="font-bold">Category:</strong> {{ meal.strCategory }}
@@ -41,13 +45,7 @@
       </div>
       <!-- Links -->
       <div class="pt-10">
-        <a
-          :href="meal.strYoutube"
-          target="_blank"
-          class="px-2 py-2 rounded-md border-2 text-center font-semibold text-white cursor-pointer bg-primary-color"
-        >
-          YouTube
-        </a>
+        <YouTubeBtn :href="meal.strYoutube" />
         <a
           :href="meal.strSource"
           target="_blank"
@@ -64,6 +62,7 @@
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
+import YouTubeBtn from "../components/YouTubeBtn.vue";
 
 const route = useRoute();
 const meal = ref({});
