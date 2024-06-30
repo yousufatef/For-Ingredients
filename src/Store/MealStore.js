@@ -31,5 +31,19 @@ export const useMealStore = defineStore("meal", {
         this.mealsByLetter = []; // Reset in case of error
       }
     },
+    async searchByIngredient(ingredient) {
+      try {
+        const response = await axios.get(
+          `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
+        );
+        this.mealsByIngredient = response.data.meals || [];
+      } catch (error) {
+        console.error("Error fetching meals:", error);
+        this.mealsByIngredient = []; // Reset in case of error
+      }
+    },
+    setIngredient(ingredient) {
+      this.ingredient = ingredient;
+    },
   },
 });
