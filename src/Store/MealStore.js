@@ -1,3 +1,4 @@
+import axios from "axios";
 import { defineStore } from "pinia";
 
 export const useMealStore = defineStore("meal", {
@@ -7,7 +8,17 @@ export const useMealStore = defineStore("meal", {
     mealsByIngredient: [],
     ingredient: {},
   }),
-
-  getters: {},
-  actions: {},
+  actions: {
+    async searchMeals(name) {
+      try {
+        const response = await axios.get(
+          `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
+        );
+        this.searchedMeals = response.data.meals || [];
+      } catch (error) {
+        console.error("Error fetching meals:", error);
+        this.searchedMeals = []; // Reset in case of error
+      }
+    },
+  },
 });
