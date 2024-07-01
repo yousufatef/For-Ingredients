@@ -5,6 +5,7 @@
         :src="meal.strMealThumb"
         :alt="meal.strMeal"
         class="rounded-t-xl w-full h-48 object-cover"
+        loading="lazy"
       />
     </router-link>
     <div class="flex flex-col gap-4 p-2 mt-3">
